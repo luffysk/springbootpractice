@@ -1,0 +1,18 @@
+
+dog:
+  name: 豆豆
+  age: 10
+---
+spring:
+  profiles: dev
+server:
+  port: 8084
+---
+spring:
+  profiles: prod
+server:
+  port: 8085
+---
+spring:
+  profiles:
+    active: dev
