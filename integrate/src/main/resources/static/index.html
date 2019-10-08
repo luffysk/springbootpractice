@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>aaa</title>
+    <script src="jquery-1.9.1.min.js"></script>
+</head>
+<body>
+    <div id="content"></div>
+    <div id="del"></div>
+    <input type="button" value="commit" onclick="commit()">
+    <input type="button" value="delete" onclick="del()">
+    <script>
+        function commit(){
+            $.ajax({
+                url:"http://localhost:8080/books/",
+                type: "post",
+                data:{name:"测试"},
+                success:function(ret){
+                    $("#content").html(ret);
+                }
+            })
+        };
+        function del(){
+            $.ajax({
+                url:"http://localhost:8080/books/100",
+                type: "delete",
+                success:function(ret){
+                    $("#del").html(ret);
+                }
+            })
+        }
+
+    </script>
+</body>
+</html>

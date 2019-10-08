@@ -15,7 +15,7 @@ import java.util.UUID;
 public class FileUploadController {
     @PostMapping("/upload")
     @ResponseBody
-    public String upload(MultipartFile uploadfile, HttpServletRequest request){
+    public String upload(MultipartFile uploadfile, HttpServletRequest request)throws Exception{
         String path = request.getSession().getServletContext().getRealPath("/uploadFile");
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
         String format = sdf.format(new Date());
@@ -31,7 +31,7 @@ public class FileUploadController {
                     format+newName;
             return filePath;
         }catch(Exception e){
-            return "上传失败";
+            throw e;
         }
     }
 }
